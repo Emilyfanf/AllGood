@@ -1,8 +1,8 @@
 {
   "name": "it",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "- Use soft-tabs with a two space indent.\r - Use double quotes.\r - Use shorthand notation where possible.\r - Put spaces after : in property declarations.\r - Put spaces before { in rule declarations.\r - Use hex color codes #000 unless using rgba().\r - Always provide fallback properties for older browsers.\r - Use one line per property declaration.\r - Always follow a rule with one line of whitespace.\r - Always quote url() and @import() contents.\r - Do not indent blocks.\r - All ids, classes and attributes must be lowercase with hyphens used for separation.\r - Comments should be used liberally to explain anything that may be unclear at first glance, especially IE workarounds or hacks.\r - Try keep all selectors loosely grouped into modules where possible and avoid having too many selectors in one declaration to make them easy to override.",
+  "main": "app.js",
   "scripts": {
     "test": "jests",
     "start": "node app.js",
@@ -20,5 +20,13 @@
     "dotenv": "^16.0.3",
     "jest": "^29.2.0",
     "prettier": "^2.7.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Emilyfanf/AllGood.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Emilyfanf/AllGood/issues"
+  },
+  "homepage": "https://github.com/Emilyfanf/AllGood#readme"
 }
