@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const Device = require('./Devices')
-const Department = require('./Department')
+//const Department = require('./Department')
 
 const schema = new mongoose.Schema({
     StaffId: { type: String, required: true },
@@ -8,14 +8,14 @@ const schema = new mongoose.Schema({
     LastName: { type: String, required: true },
     Age: Number,
     Gender: String,
+    EntryTime:{type: Date},
     ContactNumber: { type: String, required: true },
     Position: { type: String, required: true },
     Department: {type: String, required: true },
-    DepartmentId: {type: Department.schema},
+    DepartmentId: {type: mongoose.Schema.Types.ObjectId, ref: 'Department'},
     Email: { type: String, required: true, unique: true },
     Password: { type: String, required: true },
-    Permission: { type: String, required: true },
-    AvailableDevices: [Device.schema]
+    AvailableDevices: [mongoose.Schema.Types.ObjectId]
 
 },{versionKey: false})
 const User = mongoose.model('User', schema)

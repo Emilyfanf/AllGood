@@ -38,10 +38,9 @@ let data = document.getElementById("data");
 let prof = document.getElementById("prof");
 let changeSucc = document.getElementById("changeSucc");
 let backToProf = document.getElementById("backToProf");
-
+let typeS = document.getElementById("type");
 
 let btn = document.getElementById('btn');
-
 
 
 function removeAllLeft(){
@@ -55,7 +54,7 @@ function removeAllLeft(){
     profile.style.color = "white";
 }
 overview.onclick = function(){
-    over.style.display = "block";
+    over.style.display = "flex";
     prof.style.display = "none";
     data.style.display = "none";
     usag.style.display = "none";
@@ -78,7 +77,7 @@ usage.onclick = function(){
     this.style.color = "black";
 }
 datas.onclick = function(){
-    data.style.display = "block";
+    data.style.display = "flex";
     prof.style.display = "none";
     over.style.display = "none";
     usag.style.display = "none";
@@ -89,7 +88,7 @@ datas.onclick = function(){
     this.style.color = "black";
 }
 profile.onclick = function(){
-    prof.style.display = "block";
+    prof.style.display = "flex";
     over.style.display = "none";
     data.style.display = "none";
     usag.style.display = "none";
@@ -100,18 +99,31 @@ profile.onclick = function(){
     this.style.color = "black";
 }
 
+typeS.onclick = function(){
+    data.style.display = "flex";
+    prof.style.display = "none";
+    over.style.display = "none";
+    usag.style.display = "none";
+    changeSucc.style.display = "none";
+    changePassword.style.display = "none";
+    removeAllLeft();
+    this.style.backgroundColor = "#F4F2F2";
+    this.style.color = "black";
+    getvalue();
+}
+
 changePass.onclick = function(){
     prof.style.display = "none";
-    changePassword.style.display = "inline-block";
+    changePassword.style.display = "flex";
 }
 
 btn.onclick = function(){
     changePassword.style.display = "none";
-    changeSucc.style.display = "inline-block";
+    changeSucc.style.display = "flex";
 }
 backToProf.onclick = function(){
     changeSucc.style.display = "none";
-    prof.style.display = "inline-block";
+    prof.style.display = "flex";
     //记录最后更改的password到数据库中
 
 }
@@ -183,16 +195,17 @@ function recheckPassword(data){
     }
 }
 
-let areaFilter = document.getElementById('area');
-let typeFilter = document.getElementById('type');
-
-let resetFilter = document.getElementById('resetFilter');
-resetFilter.onclick = function(){
-   areaFilter.value = 'all';
-   typeFilter.value = 'all';
+function checkOldPassword(dbP,InputP){
+    if(dbP == InputP){
+        passOld.style.display = ('inline-block');
+        failOld.style.display = ('none');
+    }else{
+        failOld.style.display = ('inline-block');
+        passOld.style.display = ('none');
+    }
 }
 
-console.log(areaFilter.value)
+
 let table = document.getElementById('dataOverview');
 let totalUsage = document.getElementById('totalUsage');
 let totalRow = table.rows.length-1;
@@ -202,5 +215,9 @@ for(var i=1; i<totalRow; i++){
     totalUsage.innerHTML = sum;
 }
 
-
+function getvalue(){
+    const index = typeS.selectedIndex
+    console.log(typeS.options[index].value)
+    return typeS.options[index].value
+}
 
