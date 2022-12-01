@@ -111,7 +111,6 @@ const staffoverview = async (req, res, next) => {
             other: otherPercent,
         }
 
-
         res.render('staff_areaD.hbs', { 
             layout: 'staff_area',
             staff: staff,
